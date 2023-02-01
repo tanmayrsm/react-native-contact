@@ -13,7 +13,10 @@
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
-    "react-native": "0.70.5"
+    "react-native": "0.70.5",
+    "react-native-contacts": "^7.0.5",
+    "react-native-select-contact": "^1.6.3",
+    "react-native-webview": "^11.26.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
