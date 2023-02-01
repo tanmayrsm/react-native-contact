@@ -18,8 +18,8 @@ export default function App() {
     HelloWorld.sayHi( (err) => {alert(err)}, (msg) => {alert(msg)} );
   }
 
-  const readMessage = () => {
-    console.log("Got message from web ::");
+  const readMessage = (d) => {
+    console.log("Got message from web ::", d);
     // gP(); // method to get contact list only in form of json
     getPhoneNumber();   // method to get user's selected contact from opened panel
   }
