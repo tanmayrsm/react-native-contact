@@ -77,7 +77,7 @@ export default function App() {
       // <View>
       //   <Text>Im ok</Text>
         // <Weber/>
-        <WebView ref={webViewRef} source={{ uri: 'https://customerconnect-dev.crisil.com' }} onMessage={readMessage} />
+        <WebView ref={webViewRef} source={{ uri: 'https://crisilratingsbd-qa.crisil.com' }} onMessage={readMessage} />
         // <>
         //   <TouchableOpacity  onPress={() => HelloWorld.sayHi()}>
         //     <Text>Invoke native Java code</Text>
