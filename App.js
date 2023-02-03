@@ -19,7 +19,6 @@ export default function App() {
   }
 
   const readMessage = (d) => {
-    console.log("Got message from web ::", d);
     // gP(); // method to get contact list only in form of json
     getPhoneNumber();   // method to get user's selected contact from opened panel
   }
@@ -36,23 +35,20 @@ export default function App() {
       .then(
             selectContactPhone()
                 .then(selection => {
-                    if (!selection) {
-                        return null;
-                    }
-                    
-                    let { contact, selectedPhone } = selection;
-                    // alert(`Selected ${selectedPhone.type} phone number ${selectedPhone.number} from ${contact.name}`);
-                    console.log("Selected :: ", JSON.stringify(selection));
-                    webViewRef.current.postMessage(JSON.stringify(selection));
-                    return selectedPhone.number;
+                  if (!selection) {
+                    webViewRef.current.postMessage(null);
+                    return null;
+                  }
+                  
+                  let { contact, selectedPhone } = selection;
+                  // alert(`Selected ${selectedPhone.type} phone number ${selectedPhone.number} from ${contact.name}`);
+                  console.log("Selected :: ", JSON.stringify(selection));
+                  webViewRef.current.postMessage(JSON.stringify(selection));
+                  return selectedPhone.number;
                 }).catch(err => alert("Error in RN while getting contact ::" + JSON.stringify(err))))
                 .catch(err => alert("Error in RN selectPhone ::" + JSON.stringify(err))) ;  
   }
   const gP = () => {
-    // Contacts.getAll().then(contacts => {
-    //   // contacts returned
-      // console.log("All contacts :: ", webViewRef);
-    // });
     PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
       {
@@ -64,7 +60,6 @@ export default function App() {
       .then(Contacts.getAll()
         .then((contacts) => {
             // work with contacts
-              console.log("contacts :: RN :: ");
               webViewRef.current.postMessage(JSON.stringify(contacts));
             })
               .catch((e) => {          
